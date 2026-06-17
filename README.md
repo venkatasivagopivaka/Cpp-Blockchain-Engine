@@ -1,21 +1,29 @@
-# C++ Blockchain Engine (Zero-Dependency)
+# C++ Layer 1 Blockchain Engine
 
-## The Objective
-Building a fully functional, zero-dependency blockchain simulation from scratch in native C++ to master deep cryptographic structures, memory allocation, and the underlying physics of Web3 backend architecture. 
+A lightweight Layer 1 blockchain architecture built entirely from scratch in C++ to demonstrate the fundamental mechanics of distributed ledgers, cryptographic hashing, and data immutability.
 
-*No external libraries. No tutorials. Pure code.*
+## 🧠 Core Concepts Demonstrated
+This engine strips away network consensus and focuses strictly on the underlying data structures of a blockchain:
+- **The Genesis Block:** Automated minting of block `0` to anchor the chain.
+- **Cryptographic Hashing:** Binding block index, timestamp, data, and previous hash into a single unalterable signature.
+- **Immutability via Chaining:** Each new block securely stores the `Prev Hash` of the block before it. If historical data is tampered with, the cryptographic chain breaks.
 
-## 30-Day Critical Path Architecture
-- **Week 1:** Cryptographic Hashing (Determinism, Pre-image Resistance, Avalanche Effect)
-- **Week 2:** Block Architecture & Proof-of-Work (CPU Mining Engine)
-- **Week 3:** Merkle Trees & Transaction Compression
-- **Week 4:** The Chain Ledger & Automated Fraud Detection
+## 📁 Architecture
+* **`Block.h` & `Block.cpp`**: The blueprint and logic for individual blocks, including the `calculateHash()` mechanism.
+* **`Blockchain.h` & `Blockchain.cpp`**: The container ledger that manages the sequential array and handles block appending.
+* **`main.cpp`**: The driver file that initializes the test network, mints simulated blocks, and prints the ledger for verification.
 
-## Daily Execution Log
+## 🚀 How to Run Locally
 
-### Day 1: The Cryptographic Foundation
-- Defined the three mandatory pillars of a secure hash function:
-  1. **Determinism:** Identical inputs yield identical outputs, securing network consensus.
-  2. **One-Way Directionality (Pre-image Resistance):** Mathematical irreversibility to secure private keys.
-  3. **The Avalanche Effect:** Micro-mutations in input data result in macro-mutations in output hashes, instantly flagging data tampering.
-- Repository initialized. Preparing to write the custom Polynomial Rolling Hash algorithm.
+**1. Compile the engine using g++:**
+```bash
+g++ main.cpp Block.cpp Blockchain.cpp -o blockchain_engine
+```
+
+**2. Execute the compiled program:**
+* **Windows:** ```bash
+.\blockchain_engine.exe
+```
+* **Mac/Linux:** ```bash
+./blockchain_engine
+```
